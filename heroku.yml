@@ -3,4 +3,4 @@ build:
     web: Dockerfile
 
 run:
-  web: httpd -p $PORT -h /www
+  web: trap "exit 0;" TERM INT; httpd -p $PORT -h /www -f & wait
